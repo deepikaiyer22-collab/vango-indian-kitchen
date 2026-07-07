@@ -48,7 +48,7 @@ nav.wrap{
   display:flex; align-items:center; gap:10px;
   text-decoration:none;
 }
-.logo svg, .logo img{width:14px; height:14px; border-radius:50%; object-fit:cover;}
+.logo svg, .logo img{width:17px; height:17px; border-radius:50%; object-fit:cover;}
 .logo-text{display:flex; flex-direction:column; line-height:1.05;}
 .logo-text em{
   font-style:normal; font-family:'Work Sans', sans-serif;
