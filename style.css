@@ -18,7 +18,7 @@ body{
   line-height:1.6;
 }
 h1,h2,h3,.display{
-  font-family:'Fraunces', serif;
+  font-family:'Gelasio', Georgia, serif;
   font-weight:600;
   letter-spacing:-0.01em;
 }
@@ -43,13 +43,13 @@ nav.wrap{
   padding-top:16px; padding-bottom:16px;
 }
 .logo{
-  font-family:'Fraunces', serif;
+  font-family:'Gelasio', Georgia, serif;
   font-size:1.6rem; font-weight:700;
   display:flex; align-items:center; gap:10px;
   text-decoration:none;
-  position:relative;
 }
-.logo::before{
+.v-name{position:relative; display:inline-block;}
+.v-name::before{
   content:""; position:absolute; top:-7px; left:50%; transform:translateX(-50%);
   width:6px; height:6px; border-radius:50%; background:#E4222B;
 }
@@ -122,7 +122,7 @@ section{padding:64px 0;}
 /* ---------- Story text ---------- */
 .story-text{max-width:680px;}
 .story-text p{margin-bottom:18px; font-size:1.06rem;}
-.story-text p.lede{font-size:1.25rem; font-family:'Fraunces', serif; font-weight:500; color:var(--brick-dark);}
+.story-text p.lede{font-size:1.25rem; font-family:'Gelasio', Georgia, serif; font-weight:500; color:var(--brick-dark);}
 .photo-frame{
   border-radius:14px; overflow:hidden; background:var(--steel);
   aspect-ratio:16/10; border:6px solid var(--cream-soft);
@@ -135,7 +135,7 @@ section{padding:64px 0;}
   color:#7a6a4f; text-align:center; padding:20px; font-size:0.9rem;
 }
 .signature-line{
-  margin-top:22px; font-family:'Fraunces', serif; font-style:italic;
+  margin-top:22px; font-family:'Gelasio', Georgia, serif; font-style:italic;
   font-size:1.05rem; color:var(--curry-dark);
 }
 
@@ -143,13 +143,13 @@ section{padding:64px 0;}
 .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
 .step{background:var(--cream-soft); border-radius:16px; padding:28px 24px;}
 .step-num{
-  font-family:'Fraunces', serif; font-size:2.2rem; font-weight:700;
+  font-family:'Gelasio', Georgia, serif; font-size:2.2rem; font-weight:700;
   color:rgba(193,68,14,0.28); line-height:1; margin-bottom:12px;
 }
 .step h3{font-size:1.1rem; margin-bottom:8px;}
 .step p{font-size:0.94rem; color:#4a3a28;}
 .curious-line{
-  margin-top:36px; font-family:'Fraunces', serif; font-style:italic;
+  margin-top:36px; font-family:'Gelasio', Georgia, serif; font-style:italic;
   font-size:1.2rem; color:var(--brick-dark); text-align:center;
 }
 
@@ -200,7 +200,7 @@ form button[type="submit"]:hover{background:var(--brick-dark);}
   display:flex; gap:36px; margin-bottom:40px; flex-wrap:wrap;
 }
 .stat{}
-.stat .num{font-family:'Fraunces', serif; font-size:2.4rem; font-weight:700; color:var(--brick);}
+.stat .num{font-family:'Gelasio', Georgia, serif; font-size:2.4rem; font-weight:700; color:var(--brick);}
 .stat .label{font-size:0.85rem; color:#5f4e37;}
 .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
 .review-card{
@@ -215,7 +215,7 @@ form button[type="submit"]:hover{background:var(--brick-dark);}
   width:34px; height:34px; border-radius:50%;
   background:var(--curry); color:var(--cream-soft);
   display:flex; align-items:center; justify-content:center;
-  font-family:'Fraunces', serif; font-weight:600; font-size:0.9rem;
+  font-family:'Gelasio', Georgia, serif; font-weight:600; font-size:0.9rem;
 }
 .stars{color:var(--brick); letter-spacing:2px; margin-bottom:8px; font-size:0.88rem;}
 .copy-btn{
