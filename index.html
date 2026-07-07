@@ -7,23 +7,29 @@
 <meta name="description" content="Vango — The Indian Kitchen. A 3-4 course North or South Indian cooking workshop in Munich. Every spice has a story. Tonight, we're sharing ours.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=5">
 <style>
-  .home-hero{background:var(--curry); color:var(--cream-soft); padding:70px 0 60px; text-align:center;}
-  .home-hero .logo-mark{width:132px; height:132px; margin:0 auto 22px; border-radius:50%; object-fit:cover;}
-  .home-hero h1{font-size:clamp(2.4rem,6vw,4rem); margin:16px 0 18px; line-height:1.02;}
-  .home-hero h1 em{color:var(--marigold); font-style:normal;}
+  .home-hero{background:var(--curry); color:var(--cream-soft); padding:64px 0 60px; text-align:center;}
+  .home-hero .brand-dot{width:13px; height:13px; border-radius:50%; background:#E4222B; margin:0 auto 20px;}
+  .home-hero .brandname{font-size:clamp(3.2rem,9vw,5.5rem); line-height:1; margin-bottom:14px;}
+  .home-hero .brand-rule{display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:26px;}
+  .home-hero .brand-rule span{
+    font-size:0.85rem; font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--marigold);
+  }
+  .home-hero .brand-rule::before, .home-hero .brand-rule::after{
+    content:""; height:1px; width:60px; background:rgba(232,166,61,0.5);
+  }
+  .home-hero .tamil-note{color:var(--marigold); font-size:0.95rem; margin-bottom:22px;}
   .home-hero p.sub{max-width:520px; margin:0 auto 30px; font-size:1.1rem; opacity:0.92;}
   .home-hero .hero-ctas{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
   .stat-line{display:flex; gap:0; justify-content:center; margin-top:44px; flex-wrap:wrap;}
 </style>
-</head>
-<body>
+</head><body>
 
 <header>
   <nav class="wrap">
     <a href="index.html" class="logo">
-      <img src="amuchi-logo.png?v=3" alt="Vango logo — Amuchi" style="width:17px;height:17px;border-radius:50%;object-fit:cover;display:block;">
       <span class="logo-text">Vango<em>Indian Kitchen</em></span>
     </a>
     <button class="menu-toggle" aria-label="Toggle menu">☰</button>
@@ -40,9 +46,10 @@
 
 <section class="home-hero">
   <div class="wrap">
-    <img src="amuchi-logo.png?v=3" alt="Vango logo — Amuchi" class="logo-mark">
-    <div class="eyebrow" style="color:var(--marigold);">வாங்க · Vango · "Please come in," in Tamil</div>
-    <h1>Vango <span style="opacity:0.6; font-weight:400;">—</span><br>The Indian Kitchen</h1>
+    <div class="brand-dot"></div>
+    <h1 class="brandname">Vango</h1>
+    <div class="brand-rule"><span>The Indian Kitchen</span></div>
+    <div class="tamil-note">வாங்க · Vango — Tamil for "come on in," like a warm "Herzlich willkommen"</div>
     <p class="sub">Every spice has a story. Tonight, we're sharing ours.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" href="reserve.html">Reserve your spot</a>
@@ -118,7 +125,6 @@
 <footer>
   <div class="wrap">
     <a href="index.html" class="logo" style="justify-content:center; display:inline-flex;">
-      <img src="amuchi-logo.png?v=3" alt="Vango logo — Amuchi" style="width:26px;height:26px;border-radius:50%;">
       <span class="logo-text">Vango<em>Indian Kitchen</em></span>
     </a>
     <p>Munich, Germany</p>

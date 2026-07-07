@@ -47,8 +47,12 @@ nav.wrap{
   font-size:1.6rem; font-weight:700;
   display:flex; align-items:center; gap:10px;
   text-decoration:none;
+  position:relative;
 }
-.logo svg, .logo img{width:17px; height:17px; border-radius:50%; object-fit:cover;}
+.logo::before{
+  content:""; position:absolute; top:-7px; left:50%; transform:translateX(-50%);
+  width:6px; height:6px; border-radius:50%; background:#E4222B;
+}
 .logo-text{display:flex; flex-direction:column; line-height:1.05;}
 .logo-text em{
   font-style:normal; font-family:'Work Sans', sans-serif;
