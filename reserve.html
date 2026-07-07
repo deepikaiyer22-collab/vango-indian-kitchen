@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserve Your Spot — Vango — The Indian Kitchen</title>
+<meta name="description" content="Reserve your seat for a North or South Indian cooking workshop in Munich.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .menu-preview{background:var(--cream-soft); border-radius:14px; padding:10px 16px; margin-top:10px; font-size:0.85rem;}
+  .menu-preview ul{padding-left:18px; margin:8px 0;}
+  .served-note{font-size:0.82rem; color:var(--curry-dark); font-style:italic; margin-top:8px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="340" cy="340" r="230" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M 200 400 Q 190 320 250 300 Q 290 288 300 330 Q 305 370 270 390 Q 235 410 200 400 Z" fill="currentColor" opacity="0.85"/>
+        <path d="M 480 400 Q 490 320 430 300 Q 390 288 380 330 Q 375 370 410 390 Q 445 410 480 400 Z" fill="currentColor" opacity="0.85"/>
+        <path d="M 340 300 C 335 260 355 250 345 215 C 338 190 355 175 348 150" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+        <path d="M 348 150 C 365 138 375 148 368 165 C 362 178 345 178 340 162" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+        <circle cx="340" cy="118" r="13" fill="currentColor"/>
+        <circle cx="540" cy="380" r="13" fill="currentColor" opacity="0.6"/>
+        <circle cx="150" cy="380" r="13" fill="currentColor" opacity="0.6"/>
+      </svg>
+      <span class="logo-text">Vango<em>Indian Kitchen</em></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <div class="nav-links">
+      <ul>
+        <li><a href="our-kahani.html">Our Kahani</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+      </ul>
+      <a class="nav-cta" href="reserve.html">Reserve Your Spot</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Reserve Your Spot</div>
+    <h1>Get out of office. The only deliverable is dinner.</h1>
+    <p>Small groups, evenings and weekends, across Munich. Chai or filter coffee served with every meal.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="form-card">
+      <form id="bookingForm">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your name" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@email.com" required>
+
+        <label for="guests">Number of people</label>
+        <input id="guests" type="number" min="1" max="30" placeholder="e.g. 4" required>
+
+        <label for="date">Preferred date</label>
+        <input id="date" type="date">
+
+        <label>Choose your cuisine</label>
+        <div class="radio-row">
+          <label class="radio-option">
+            <input type="radio" name="cuisine" value="North Indian" checked>
+            <span>North Indian</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="cuisine" value="South Indian">
+            <span>South Indian</span>
+          </label>
+        </div>
+
+        <div class="menu-preview">
+          <strong>North Indian:</strong> Rotis, Dal Fry, Cucumber Pomegranate Raita, Jeera Rice
+          <br><strong>South Indian:</strong> Masala Dosa (potato filling), Onion Tomato Chutney, Payasam (sweet)
+          <div class="served-note">Chai or filter coffee served with every meal, either way.</div>
+        </div>
+
+        <label for="message">Anything I should know?</label>
+        <textarea id="message" rows="3" placeholder="Allergies, occasion, dietary needs..."></textarea>
+
+        <button type="submit">Send booking request</button>
+        <p class="form-note" id="bookingStatus">Your request is saved directly — I'll follow up by email to confirm.</p>
+      </form>
+    </div>
+
+    <div style="text-align:center; margin-top:32px; font-size:0.92rem; color:#5f4e37;">
+      Prefer to just message me directly?
+      <a href="mailto:hello@vango.example" style="color:var(--brick); font-weight:600;">Email</a>
+      or
+      <a href="https://wa.me/491700000000" target="_blank" rel="noopener" style="color:var(--brick); font-weight:600;">WhatsApp</a>.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="logo" style="justify-content:center; display:inline-flex;">
+      <svg viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:26px;height:26px;">
+        <circle cx="340" cy="340" r="230" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M 200 400 Q 190 320 250 300 Q 290 288 300 330 Q 305 370 270 390 Q 235 410 200 400 Z" fill="currentColor" opacity="0.85"/>
+        <path d="M 480 400 Q 490 320 430 300 Q 390 288 380 330 Q 375 370 410 390 Q 445 410 480 400 Z" fill="currentColor" opacity="0.85"/>
+        <circle cx="340" cy="118" r="13" fill="currentColor"/>
+        <circle cx="540" cy="380" r="13" fill="currentColor" opacity="0.6"/>
+        <circle cx="150" cy="380" r="13" fill="currentColor" opacity="0.6"/>
+      </svg>
+      <span class="logo-text">Vango<em>Indian Kitchen</em></span>
+    </a>
+    <p>Munich, Germany · Every spice has a story, come find out yours.</p>
+    <div class="foot-links">
+      <a href="mailto:hello@vango.example">Email</a>
+      <a href="https://wa.me/491700000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+  initSupabase();
+
+  const bookingForm = document.getElementById('bookingForm');
+  bookingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const statusEl = document.getElementById('bookingStatus');
+    const payload = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      guests: parseInt(document.getElementById('guests').value, 10) || null,
+      cuisine: document.querySelector('input[name="cuisine"]:checked').value,
+      preferred_date: document.getElementById('date').value || null,
+      message: document.getElementById('message').value.trim()
+    };
+
+    if (!supabaseClient) {
+      const body = encodeURIComponent(
+        `Name: ${payload.name}\nEmail: ${payload.email}\nGuests: ${payload.guests}\nCuisine: ${payload.cuisine}\nDate: ${payload.preferred_date || 'flexible'}\nNotes: ${payload.message}`
+      );
+      window.location.href = `mailto:hello@vango.example?subject=Vango%20booking%20request&body=${body}`;
+      return;
+    }
+
+    statusEl.textContent = 'Sending...';
+    const { error } = await supabaseClient.from('bookings').insert([payload]);
+    if (error) {
+      statusEl.textContent = 'Something went wrong — please email hello@vango.example directly.';
+      return;
+    }
+    bookingForm.reset();
+    statusEl.textContent = "Got it! I'll email you shortly to confirm your seat.";
+  });
+</script>
+</body>
+</html>

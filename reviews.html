@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews — Vango — The Indian Kitchen</title>
+<meta name="description" content="Real reviews from guests who cooked, ate, and shared a table with Vango — The Indian Kitchen in Munich.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="340" cy="340" r="230" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M 200 400 Q 190 320 250 300 Q 290 288 300 330 Q 305 370 270 390 Q 235 410 200 400 Z" fill="currentColor" opacity="0.85"/>
+        <path d="M 480 400 Q 490 320 430 300 Q 390 288 380 330 Q 375 370 410 390 Q 445 410 480 400 Z" fill="currentColor" opacity="0.85"/>
+        <path d="M 340 300 C 335 260 355 250 345 215 C 338 190 355 175 348 150" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+        <path d="M 348 150 C 365 138 375 148 368 165 C 362 178 345 178 340 162" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" opacity="0.7"/>
+        <circle cx="340" cy="118" r="13" fill="currentColor"/>
+        <circle cx="540" cy="380" r="13" fill="currentColor" opacity="0.6"/>
+        <circle cx="150" cy="380" r="13" fill="currentColor" opacity="0.6"/>
+      </svg>
+      <span class="logo-text">Vango<em>Indian Kitchen</em></span>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <div class="nav-links">
+      <ul>
+        <li><a href="our-kahani.html">Our Kahani</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="reviews.html" class="active">Reviews</a></li>
+      </ul>
+      <a class="nav-cta" href="reserve.html">Reserve Your Spot</a>
+    </div>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow">Reviews</div>
+    <h1>Straight from the table</h1>
+    <p>Real words from people who cooked, ate, and stayed longer than planned.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="review-stats" id="reviewStats">
+      <div class="stat"><div class="num">5.0</div><div class="label">average rating</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">reviews so far</div></div>
+    </div>
+
+    <div class="reviews-grid" id="reviewsGrid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"I came for the food and left with three new friends and turmeric on my fingers. Best Tuesday I've had in Munich."</p>
+        <div class="review-who"><div class="avatar">J</div> Julia, Munich</div>
+        <button class="copy-btn" data-quote="I came for the food and left with three new friends and turmeric on my fingers. Best Tuesday I've had in Munich." data-name="Julia, Munich" data-stars="5">Copy for social</button>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"No PowerPoint, no small talk about the weather — just flour on our hands and honest conversation."</p>
+        <div class="review-who"><div class="avatar">M</div> Markus, Bogenhausen</div>
+        <button class="copy-btn" data-quote="No PowerPoint, no small talk about the weather — just flour on our hands and honest conversation." data-name="Markus, Bogenhausen" data-stars="5">Copy for social</button>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"The dal alone was worth it. Watching strangers become a dinner table full of friends — that's the real recipe."</p>
+        <div class="review-who"><div class="avatar">S</div> Sofia, Schwabing</div>
+        <button class="copy-btn" data-quote="The dal alone was worth it. Watching strangers become a dinner table full of friends — that's the real recipe." data-name="Sofia, Schwabing" data-stars="5">Copy for social</button>
+      </div>
+    </div>
+    <p class="form-note" id="reviewsNote" style="text-align:center; margin-top:24px;">Sample reviews shown above — real guest reviews will appear automatically once submitted and approved.</p>
+
+    <div class="review-form-wrap">
+      <h3>Leave a review</h3>
+      <form id="reviewForm">
+        <div class="review-form-row">
+          <input id="rName" type="text" placeholder="Your name" required>
+          <select id="rRating" required>
+            <option value="5">★★★★★</option>
+            <option value="4">★★★★</option>
+            <option value="3">★★★</option>
+          </select>
+        </div>
+        <textarea id="rQuote" rows="3" placeholder="Tell us about your evening..." required></textarea>
+        <label class="check-row">
+          <input type="checkbox" id="rConsent" checked>
+          <span>It's okay to feature my review on Instagram, Facebook, or LinkedIn.</span>
+        </label>
+        <button type="submit">Submit review</button>
+        <p class="form-note" id="reviewStatus">Reviews are checked before they go live, so yours may not appear immediately.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="logo" style="justify-content:center; display:inline-flex;">
+      <svg viewBox="0 0 680 680" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:26px;height:26px;">
+        <circle cx="340" cy="340" r="230" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M 200 400 Q 190 320 250 300 Q 290 288 300 330 Q 305 370 270 390 Q 235 410 200 400 Z" fill="currentColor" opacity="0.85"/>
+        <path d="M 480 400 Q 490 320 430 300 Q 390 288 380 330 Q 375 370 410 390 Q 445 410 480 400 Z" fill="currentColor" opacity="0.85"/>
+        <circle cx="340" cy="118" r="13" fill="currentColor"/>
+        <circle cx="540" cy="380" r="13" fill="currentColor" opacity="0.6"/>
+        <circle cx="150" cy="380" r="13" fill="currentColor" opacity="0.6"/>
+      </svg>
+      <span class="logo-text">Vango<em>Indian Kitchen</em></span>
+    </a>
+    <p>Munich, Germany · Every spice has a story, come find out yours.</p>
+    <div class="foot-links">
+      <a href="mailto:hello@vango.example">Email</a>
+      <a href="https://wa.me/491700000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
+  initSupabase();
+
+  async function loadReviews() {
+    if (!supabaseClient) return;
+    const { data, error } = await supabaseClient
+      .from('reviews')
+      .select('name, quote, rating, created_at')
+      .eq('approved', true)
+      .order('created_at', { ascending: false })
+      .limit(12);
+
+    if (error || !data || data.length === 0) return;
+
+    const grid = document.getElementById('reviewsGrid');
+    grid.innerHTML = '';
+    let total = 0;
+    data.forEach(r => {
+      total += r.rating;
+      const stars = '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating);
+      const initial = (r.name || '?').trim().charAt(0).toUpperCase();
+      const safeQuote = r.quote.replace(/</g, '&lt;');
+      const card = document.createElement('div');
+      card.className = 'review-card';
+      card.innerHTML = `
+        <div class="stars">${stars}</div>
+        <p class="quote">"${safeQuote}"</p>
+        <div class="review-who"><div class="avatar">${initial}</div> ${r.name}</div>
+        <button class="copy-btn" data-quote="${safeQuote}" data-name="${r.name}" data-stars="${r.rating}">Copy for social</button>
+      `;
+      grid.appendChild(card);
+    });
+
+    document.getElementById('reviewsNote').textContent = 'Real reviews from real guests.';
+    const avg = (total / data.length).toFixed(1);
+    const statsEl = document.getElementById('reviewStats');
+    statsEl.innerHTML = `
+      <div class="stat"><div class="num">${avg}</div><div class="label">average rating</div></div>
+      <div class="stat"><div class="num">${data.length}</div><div class="label">reviews so far</div></div>
+    `;
+    attachCopyButtons();
+  }
+
+  function attachCopyButtons() {
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const stars = '★'.repeat(parseInt(btn.dataset.stars, 10));
+        const text = `${stars}\n"${btn.dataset.quote}"\n— ${btn.dataset.name}, Vango — The Indian Kitchen`;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = original; }, 1800);
+        });
+      });
+    });
+  }
+
+  const reviewForm = document.getElementById('reviewForm');
+  reviewForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const statusEl = document.getElementById('reviewStatus');
+    if (!supabaseClient) {
+      statusEl.textContent = "Reviews aren't connected yet — add your Supabase keys in supabase-config.js.";
+      return;
+    }
+    const payload = {
+      name: document.getElementById('rName').value.trim(),
+      rating: parseInt(document.getElementById('rRating').value, 10),
+      quote: document.getElementById('rQuote').value.trim(),
+      consent_public: document.getElementById('rConsent').checked,
+      approved: false
+    };
+
+    statusEl.textContent = 'Submitting...';
+    const { error } = await supabaseClient.from('reviews').insert([payload]);
+    if (error) {
+      statusEl.textContent = 'Something went wrong — please try again.';
+      return;
+    }
+    reviewForm.reset();
+    statusEl.textContent = "Thank you! Your review will appear once it's been checked.";
+  });
+
+  attachCopyButtons();
+  loadReviews();
+</script>
+</body>
+</html>
