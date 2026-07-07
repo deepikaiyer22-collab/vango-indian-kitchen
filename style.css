@@ -44,17 +44,17 @@ nav.wrap{
 }
 .logo{
   font-family:'Fraunces', serif;
-  font-size:1.25rem; font-weight:700;
-  display:flex; align-items:center; gap:9px;
+  font-size:1.6rem; font-weight:700;
+  display:flex; align-items:center; gap:10px;
   text-decoration:none;
 }
-.logo svg, .logo img{width:30px; height:30px; border-radius:50%; object-fit:cover;}
+.logo svg, .logo img{width:14px; height:14px; border-radius:50%; object-fit:cover;}
 .logo-text{display:flex; flex-direction:column; line-height:1.05;}
 .logo-text em{
   font-style:normal; font-family:'Work Sans', sans-serif;
-  font-size:0.6rem; font-weight:600;
+  font-size:0.65rem; font-weight:600;
   letter-spacing:0.15em; text-transform:uppercase;
-  color:var(--brick); margin-top:2px;
+  color:var(--brick); margin-top:3px;
 }
 nav ul{list-style:none; display:flex; gap:26px;}
 nav ul li a{
