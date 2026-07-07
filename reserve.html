@@ -86,7 +86,7 @@
 
     <div style="text-align:center; margin-top:32px; font-size:0.92rem; color:#5f4e37;">
       Prefer to just message me directly?
-      <a href="mailto:hello@vango.example" style="color:var(--brick); font-weight:600;">Email</a>
+      <a href="mailto:deepika.iyer22@gmail.com" style="color:var(--brick); font-weight:600;">Email</a>
       or
       <a href="https://wa.me/4915251748784" target="_blank" rel="noopener" style="color:var(--brick); font-weight:600;">WhatsApp</a>.
     </div>
@@ -101,7 +101,7 @@
     </a>
     <p>Munich, Germany</p>
     <div class="foot-links">
-      <a href="mailto:hello@vango.example">Email</a>
+      <a href="mailto:deepika.iyer22@gmail.com">Email</a>
       <a href="https://wa.me/4915251748784" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
     </div>
@@ -130,14 +130,14 @@
       const body = encodeURIComponent(
         `Name: ${payload.name}\nEmail: ${payload.email}\nGuests: ${payload.guests}\nCuisine: ${payload.cuisine}\nDate: ${payload.preferred_date || 'flexible'}\nNotes: ${payload.message}`
       );
-      window.location.href = `mailto:hello@vango.example?subject=Vango%20booking%20request&body=${body}`;
+      window.location.href = `mailto:deepika.iyer22@gmail.com?subject=Vango%20booking%20request&body=${body}`;
       return;
     }
 
     statusEl.textContent = 'Sending...';
     const { error } = await supabaseClient.from('bookings').insert([payload]);
     if (error) {
-      statusEl.textContent = 'Something went wrong — please email hello@vango.example directly.';
+      statusEl.textContent = 'Something went wrong — please email deepika.iyer22@gmail.com directly.';
       return;
     }
     bookingForm.reset();
