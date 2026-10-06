@@ -22,6 +22,7 @@
         <li><a href="our-kahani.html">Our Kahani</a></li>
         <li><a href="how-it-works.html">How It Works</a></li>
         <li><a href="reviews.html" class="active">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <a class="nav-cta" href="reserve.html">Reserve Your Spot</a>
     </div>
@@ -48,19 +49,16 @@
         <div class="stars">★★★★★</div>
         <p class="quote">"I came for the food and left with three new friends and turmeric on my fingers. Best Tuesday I've had in Munich."</p>
         <div class="review-who"><div class="avatar">J</div> Julia, Munich</div>
-        <button class="copy-btn" data-quote="I came for the food and left with three new friends and turmeric on my fingers. Best Tuesday I've had in Munich." data-name="Julia, Munich" data-stars="5">Copy for social</button>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
         <p class="quote">"No PowerPoint, no small talk about the weather — just flour on our hands and honest conversation."</p>
         <div class="review-who"><div class="avatar">M</div> Markus, Bogenhausen</div>
-        <button class="copy-btn" data-quote="No PowerPoint, no small talk about the weather — just flour on our hands and honest conversation." data-name="Markus, Bogenhausen" data-stars="5">Copy for social</button>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
         <p class="quote">"The dal alone was worth it. Watching strangers become a dinner table full of friends — that's the real recipe."</p>
         <div class="review-who"><div class="avatar">S</div> Sofia, Schwabing</div>
-        <button class="copy-btn" data-quote="The dal alone was worth it. Watching strangers become a dinner table full of friends — that's the real recipe." data-name="Sofia, Schwabing" data-stars="5">Copy for social</button>
       </div>
     </div>
     <p class="form-note" id="reviewsNote" style="text-align:center; margin-top:24px;">Sample reviews shown above — real guest reviews will appear automatically once submitted and approved.</p>
@@ -95,9 +93,7 @@
     </a>
     <p>Munich, Germany</p>
     <div class="foot-links">
-      <a href="mailto:deepika.iyer22@gmail.com">Email</a>
-      <a href="https://wa.me/4915251748784" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="contact.html">Contact Us</a>
     </div>
   </div>
 </footer>
@@ -105,10 +101,17 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
 <script>
-  initSupabase();
+  // Guarded so the page still works if supabase-config.js or the CDN fails to load
+  try {
+    if (typeof initSupabase === 'function') initSupabase();
+    else console.error('supabase-config.js did not load (check the file name/path).');
+  } catch (err) {
+    console.error('Supabase init failed:', err);
+  }
+  const hasDb = () => typeof supabaseClient !== 'undefined' && !!supabaseClient;
 
   async function loadReviews() {
-    if (!supabaseClient) return;
+    if (!hasDb()) return;
     const { data, error } = await supabaseClient
       .from('reviews')
       .select('name, quote, rating, created_at')
@@ -116,57 +119,53 @@
       .order('created_at', { ascending: false })
       .limit(12);
 
-    if (error || !data || data.length === 0) return;
+    if (error) { console.error('Loading reviews failed:', error.message); return; }
+    if (!data || data.length === 0) return;
 
     const grid = document.getElementById('reviewsGrid');
-    grid.innerHTML = '';
+    grid.replaceChildren();
     let total = 0;
     data.forEach(r => {
-      total += r.rating;
-      const stars = '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating);
-      const initial = (r.name || '?').trim().charAt(0).toUpperCase();
-      const safeQuote = r.quote.replace(/</g, '&lt;');
+      const rating = Math.min(5, Math.max(1, parseInt(r.rating, 10) || 5));
+      total += rating;
+
+      // Built with textContent so review text can never inject HTML
       const card = document.createElement('div');
       card.className = 'review-card';
-      card.innerHTML = `
-        <div class="stars">${stars}</div>
-        <p class="quote">"${safeQuote}"</p>
-        <div class="review-who"><div class="avatar">${initial}</div> ${r.name}</div>
-        <button class="copy-btn" data-quote="${safeQuote}" data-name="${r.name}" data-stars="${r.rating}">Copy for social</button>
-      `;
+
+      const stars = document.createElement('div');
+      stars.className = 'stars';
+      stars.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+      const quote = document.createElement('p');
+      quote.className = 'quote';
+      quote.textContent = '"' + (r.quote || '') + '"';
+
+      const who = document.createElement('div');
+      who.className = 'review-who';
+      const avatar = document.createElement('div');
+      avatar.className = 'avatar';
+      avatar.textContent = (r.name || '?').trim().charAt(0).toUpperCase();
+      who.append(avatar, ' ' + (r.name || ''));
+
+      card.append(stars, quote, who);
       grid.appendChild(card);
     });
 
     document.getElementById('reviewsNote').textContent = 'Real reviews from real guests.';
     const avg = (total / data.length).toFixed(1);
-    const statsEl = document.getElementById('reviewStats');
-    statsEl.innerHTML = `
+    document.getElementById('reviewStats').innerHTML = `
       <div class="stat"><div class="num">${avg}</div><div class="label">average rating</div></div>
       <div class="stat"><div class="num">${data.length}</div><div class="label">reviews so far</div></div>
     `;
-    attachCopyButtons();
-  }
-
-  function attachCopyButtons() {
-    document.querySelectorAll('.copy-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const stars = '★'.repeat(parseInt(btn.dataset.stars, 10));
-        const text = `${stars}\n"${btn.dataset.quote}"\n— ${btn.dataset.name}, Vango — The Indian Kitchen`;
-        navigator.clipboard.writeText(text).then(() => {
-          const original = btn.textContent;
-          btn.textContent = 'Copied!';
-          setTimeout(() => { btn.textContent = original; }, 1800);
-        });
-      });
-    });
   }
 
   const reviewForm = document.getElementById('reviewForm');
   reviewForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const statusEl = document.getElementById('reviewStatus');
-    if (!supabaseClient) {
-      statusEl.textContent = "Reviews aren't connected yet — add your Supabase keys in supabase-config.js.";
+    if (!hasDb()) {
+      statusEl.textContent = "Sorry, reviews can't be sent right now — please try again later.";
       return;
     }
     const payload = {
@@ -177,9 +176,18 @@
       approved: false
     };
 
+    const submitBtn = reviewForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
     statusEl.textContent = 'Submitting...';
-    const { error } = await supabaseClient.from('reviews').insert([payload]);
+    let error = null;
+    try {
+      ({ error } = await supabaseClient.from('reviews').insert([payload]));
+    } catch (err) {
+      error = err;
+    }
+    submitBtn.disabled = false;
     if (error) {
+      console.error('Supabase insert failed:', error.code, error.message, error.details, error.hint);
       statusEl.textContent = 'Something went wrong — please try again.';
       return;
     }
@@ -187,7 +195,6 @@
     statusEl.textContent = "Thank you! Your review will appear once it's been checked.";
   });
 
-  attachCopyButtons();
   loadReviews();
 </script>
 </body>
