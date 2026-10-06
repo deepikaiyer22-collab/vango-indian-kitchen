@@ -65,8 +65,8 @@
 
         <!-- Spam trap: real visitors never see or fill this -->
         <div class="hp-field" aria-hidden="true">
-          <label for="website">Leave this field empty</label>
-          <input id="website" type="text" tabindex="-1" autocomplete="off">
+          <label for="hp_x9">Leave this field empty</label>
+          <input id="hp_x9" name="hp_x9" type="text" tabindex="-1" autocomplete="off">
         </div>
 
         <button type="submit">Send message</button>
@@ -110,7 +110,7 @@
     const statusEl = document.getElementById('contactStatus');
 
     // Honeypot: bots fill hidden fields; pretend success and drop it
-    if (document.getElementById('website').value) {
+    if (document.getElementById('hp_x9').value) {
       contactForm.reset();
       statusEl.textContent = "Thanks! I'll get back to you soon.";
       return;
