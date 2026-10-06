@@ -61,26 +61,31 @@
         <div class="review-who"><div class="avatar">S</div> Sofia, Schwabing</div>
       </div>
     </div>
-    <p class="form-note" id="reviewsNote" style="text-align:center; margin-top:24px;">Sample reviews shown above — real guest reviews will appear automatically once submitted and approved.</p>
+    <p class="form-note" id="reviewsNote" style="text-align:center; margin-top:24px;">Sample reviews shown above — real guest reviews will appear here as they come in.</p>
 
     <div class="review-form-wrap">
       <h3>Leave a review</h3>
       <form id="reviewForm">
         <div class="review-form-row">
-          <input id="rName" type="text" placeholder="Your name" required>
+          <input id="rName" type="text" placeholder="Your name" required maxlength="120">
           <select id="rRating" required>
             <option value="5">★★★★★</option>
             <option value="4">★★★★</option>
             <option value="3">★★★</option>
           </select>
         </div>
-        <textarea id="rQuote" rows="3" placeholder="Tell us about your evening..." required></textarea>
+        <textarea id="rQuote" rows="3" placeholder="Tell us about your evening..." required maxlength="2000"></textarea>
+        <!-- Spam trap: real visitors never see or fill this -->
+        <div style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+          <label for="rWebsite">Leave this field empty</label>
+          <input id="rWebsite" type="text" tabindex="-1" autocomplete="off">
+        </div>
         <label class="check-row">
           <input type="checkbox" id="rConsent" checked>
           <span>It's okay to feature my review on Instagram, Facebook, or LinkedIn.</span>
         </label>
         <button type="submit">Submit review</button>
-        <p class="form-note" id="reviewStatus">Reviews are checked before they go live, so yours may not appear immediately.</p>
+        <p class="form-note" id="reviewStatus"></p>
       </form>
     </div>
   </div>
@@ -168,12 +173,17 @@
       statusEl.textContent = "Sorry, reviews can't be sent right now — please try again later.";
       return;
     }
+    if (document.getElementById('rWebsite').value) {
+      reviewForm.reset();
+      statusEl.textContent = "Thank you for your review!";
+      return;
+    }
     const payload = {
       name: document.getElementById('rName').value.trim(),
       rating: parseInt(document.getElementById('rRating').value, 10),
       quote: document.getElementById('rQuote').value.trim(),
       consent_public: document.getElementById('rConsent').checked,
-      approved: false
+      approved: true
     };
 
     const submitBtn = reviewForm.querySelector('button[type="submit"]');
@@ -192,7 +202,8 @@
       return;
     }
     reviewForm.reset();
-    statusEl.textContent = "Thank you! Your review will appear once it's been checked.";
+    statusEl.textContent = "Thank you for your review!";
+    loadReviews();
   });
 
   loadReviews();
