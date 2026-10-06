@@ -54,8 +54,12 @@
         <label for="guests">Number of people</label>
         <input id="guests" type="number" min="1" max="30" placeholder="e.g. 4" required>
 
-        <label for="date">Preferred date</label>
-        <input id="date" type="date">
+        <label for="date">Choose your session</label>
+        <select id="date" required>
+          <option value="" disabled selected>Select a date &amp; time</option>
+          <option value="2026-11-22">22 Nov 2026 · 03:00–06:00 pm</option>
+          <option value="2026-11-29">29 Nov 2026 · 03:00–06:00 pm</option>
+        </select>
 
         <label>Choose your cuisine</label>
         <div class="radio-row">
@@ -109,7 +113,13 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
 <script>
-  initSupabase();
+  // Guarded so the form still works if supabase-config.js or the CDN fails to load
+  try {
+    if (typeof initSupabase === 'function') initSupabase();
+    else console.error('supabase-config.js did not load (check the file name/path).');
+  } catch (err) {
+    console.error('Supabase init failed:', err);
+  }
 
   const bookingForm = document.getElementById('bookingForm');
   bookingForm.addEventListener('submit', async (e) => {
@@ -124,7 +134,7 @@
       message: document.getElementById('message').value.trim()
     };
 
-    if (!supabaseClient) {
+    if (typeof supabaseClient === 'undefined' || !supabaseClient) {
       const body = encodeURIComponent(
         `Name: ${payload.name}\nEmail: ${payload.email}\nGuests: ${payload.guests}\nCuisine: ${payload.cuisine}\nDate: ${payload.preferred_date || 'flexible'}\nNotes: ${payload.message}`
       );
@@ -132,9 +142,18 @@
       return;
     }
 
+    const submitBtn = bookingForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
     statusEl.textContent = 'Sending...';
-    const { error } = await supabaseClient.from('bookings').insert([payload]);
+    let error = null;
+    try {
+      ({ error } = await supabaseClient.from('bookings').insert([payload]));
+    } catch (err) {
+      error = err;
+    }
+    submitBtn.disabled = false;
     if (error) {
+      console.error('Supabase insert failed:', error.code, error.message, error.details, error.hint);
       statusEl.textContent = 'Something went wrong — please email deepika.iyer22@gmail.com directly.';
       return;
     }
